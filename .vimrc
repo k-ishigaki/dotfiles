@@ -107,6 +107,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'sudar/vim-arduino-syntax'
 
 highlight Pmenu ctermbg=248 guibg=#606060
 highlight PmenuSel ctermbg=159 guifg=#dddd00 guibg=#1f82cd
