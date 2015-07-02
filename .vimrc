@@ -61,6 +61,11 @@ set fileformats=unix,dos	" unix line endings
 set backupdir=Z:	" バックアップディレクトリの指定
 set noundofile		" undoファイルを作成しない
 set guioptions-=T	" ツールバーを削除
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set guioptions-=b
 
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
