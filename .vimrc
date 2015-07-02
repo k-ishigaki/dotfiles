@@ -84,6 +84,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
+" for asynchronous tasks
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -93,7 +94,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+" command line at vim
 NeoBundle 'Shougo/vimshell.vim'
+" complete words visualizer
 NeoBundle 'Shougo/neocomplete.vim'
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_ignore_case = 1
@@ -102,12 +105,20 @@ if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
+" quickrun programs at vim
 NeoBundle 'thinca/vim-quickrun'
+" visual effects for vim status bar
 NeoBundle 'itchyny/lightline.vim'
+" filetype definition for haskell
 NeoBundle 'kana/vim-filetype-haskell'
+" plugin for haskell ghcmod
 NeoBundle 'eagletmt/ghcmod-vim'
+" neocomplete helper for haskell
 NeoBundle 'ujihisa/neco-ghc'
+" Arduino syntax highlighting
 NeoBundle 'sudar/vim-arduino-syntax'
+" file tree
+NeoBundle 'scrooloose/nerdtree'
 
 highlight Pmenu ctermbg=248 guibg=#606060
 highlight PmenuSel ctermbg=159 guifg=#dddd00 guibg=#1f82cd
