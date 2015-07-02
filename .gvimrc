@@ -18,7 +18,7 @@ if filereadable("/etc/vim/gvimrc.local")
   source /etc/vim/gvimrc.local
 endif
 
-set guifont=CodeM:h10
+set guifont=CodeM:h9
 colorscheme railscasts
 set encoding=utf-8
 au GUIEnter * simalt ~x
