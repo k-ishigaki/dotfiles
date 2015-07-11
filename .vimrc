@@ -112,6 +112,13 @@ endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 " quickrun programs at vim
 NeoBundle 'thinca/vim-quickrun'
+let g:quickrun_config = {
+\   "cpp/g++-preprocessor" : {
+\       "exec"    : "%c %o %s:p",
+\       "command" : "g++.exe",
+\       "cmdopt"  : " -P -E -C -w -std=gnu++0x",
+\   },
+\}
 " visual effects for vim status bar
 NeoBundle 'itchyny/lightline.vim'
 " filetype definition for haskell
@@ -124,6 +131,10 @@ NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'sudar/vim-arduino-syntax'
 " file tree
 NeoBundle 'scrooloose/nerdtree'
+" scroll smoothing
+NeoBundle 'yonchu/accelerated-smooth-scroll'
+let g:ac_smooth_scroll_du_sleep_time_msec = 0
+let g:ac_smooth_scroll_fb_sleep_time_msec = 0
 
 highlight Pmenu ctermbg=248 guibg=#606060
 highlight PmenuSel ctermbg=159 guifg=#dddd00 guibg=#1f82cd
