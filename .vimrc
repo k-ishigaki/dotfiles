@@ -58,7 +58,6 @@ set formatoptions-=o	" 'o','O'でのコメントを自動挿入しない
 set formatoptions-=t	" 自動折り返しをしないようにする
 set shellpipe=2>&1\|wtee	" wteeを利用してリダイレクトと標準出力を同時に行う
 set fileformats=unix,dos	" unix line endings
-set backupdir=Z:	" バックアップディレクトリの指定
 set noundofile		" undoファイルを作成しない
 set guioptions-=T	" ツールバーを削除
 set guioptions-=r
@@ -66,6 +65,7 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 set guioptions-=b
+set backupdir=$TEMP	" let locate backup files ("*.~) to TEMP directory
 
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
