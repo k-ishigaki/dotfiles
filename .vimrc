@@ -137,6 +137,9 @@ let g:ac_smooth_scroll_du_sleep_time_msec = 0
 let g:ac_smooth_scroll_fb_sleep_time_msec = 0
 " vim clang complete plugin
 NeoBundle 'justmao945/vim-clang'
+" for markdown preview
+NeoBundle 'kannokanno/previm'
+NeoBundle 'open-browser'
 
 highlight Pmenu ctermbg=248 guibg=#606060
 highlight PmenuSel ctermbg=159 guifg=#dddd00 guibg=#1f82cd
