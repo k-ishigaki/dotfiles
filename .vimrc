@@ -56,7 +56,6 @@ set imsearch=-1		" 検索時のデフォルト値 -1:equal to iminsert
 set formatoptions+=r	" 挿入モード時，Enter押下でコメントを自動挿入する
 set formatoptions-=o	" 'o','O'でのコメントを自動挿入しない
 set formatoptions-=t	" 自動折り返しをしないようにする
-set shellpipe=2>&1\|wtee	" wteeを利用してリダイレクトと標準出力を同時に行う
 set fileformats=unix,dos	" unix line endings
 set noundofile		" undoファイルを作成しない
 set guioptions-=T	" ツールバーを削除
@@ -65,7 +64,13 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 set guioptions-=b
-set backupdir=$TEMP	" let locate backup files ("*.~) to TEMP directory
+" let locate backup files ("*.~) to TEMP directory
+if has('unix') || has('mac')
+	set backupdir=/tmp
+else
+	set shellpipe=2>&1\|wtee	" wteeを利用してリダイレクトと標準出力を同時に行う
+	set backupdir=$TEMP
+endif
 
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
