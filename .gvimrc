@@ -22,6 +22,7 @@ if has('unix') || has('mac')
 	set guifont=CodeM\ 11
 else
 	set guifont=CodeM:h10
+	set renderoptions=type:directx,renmode:5
 endif
 colorscheme railscasts
 set encoding=utf-8
