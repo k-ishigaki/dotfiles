@@ -60,6 +60,7 @@ set fileformats=unix,dos
 set fileformat=unix	" unix line endings
 set noundofile		" undoファイルを作成しない
 set guioptions-=T	" ツールバーを削除
+set nonumber
 set guioptions-=r
 set guioptions-=R
 set guioptions-=l
