@@ -56,7 +56,8 @@ set imsearch=-1		" 検索時のデフォルト値 -1:equal to iminsert
 set formatoptions+=r	" 挿入モード時，Enter押下でコメントを自動挿入する
 set formatoptions-=o	" 'o','O'でのコメントを自動挿入しない
 set formatoptions-=t	" 自動折り返しをしないようにする
-set fileformats=unix,dos	" unix line endings
+set fileformats=unix,dos
+set fileformat=unix	" unix line endings
 set noundofile		" undoファイルを作成しない
 set guioptions-=T	" ツールバーを削除
 set guioptions-=r
