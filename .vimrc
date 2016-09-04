@@ -66,6 +66,10 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 set guioptions-=b
+" tab sizes
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
 " let locate backup files ("*.~) to TEMP directory
 if has('unix') || has('mac')
 	set backupdir=/tmp
