@@ -144,6 +144,7 @@ NeoBundle 'sudar/vim-arduino-syntax'
 NeoBundle 'scrooloose/nerdtree'
 " vim clang complete plugin
 NeoBundle 'justmao945/vim-clang'
+let g:clang_check_syntax_auto = 1
 " for markdown preview
 NeoBundle 'kannokanno/previm'
 NeoBundle 'open-browser'
