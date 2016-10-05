@@ -145,6 +145,8 @@ NeoBundle 'scrooloose/nerdtree'
 " vim clang complete plugin
 NeoBundle 'justmao945/vim-clang'
 let g:clang_check_syntax_auto = 1
+let g:clang_format_auto = 1
+let g:clang_format_style = "{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: ForIndentation, AccessModifierOffset: -8, PointerBindsToType: true}"
 " for markdown preview
 NeoBundle 'kannokanno/previm'
 NeoBundle 'open-browser'
