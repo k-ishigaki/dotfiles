@@ -74,7 +74,7 @@ set noexpandtab
 if has('unix') || has('mac')
 	set backupdir=/tmp
 else
-	set shellpipe=2>&1\|wtee	" wteeを利用してリダイレクトと標準出力を同時に行う
+	set shellpipe=2>\&1\|nkf\ -uw\|wtee	" wteeを利用してリダイレクトと標準出力を同時に行う
 	set backupdir=$TEMP
 endif
 
