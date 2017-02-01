@@ -22,7 +22,12 @@ endif
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-"set background=dark
+set background=dark
+
+" カラースキーマ設定
+" 今のところはカラースキーマは別途ダンロードして.vim/colors以下に配置
+set t_Co=256
+colorscheme railscasts
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -66,6 +71,8 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 set guioptions-=b
+set encoding=utf-8
+set hlsearch
 " tab sizes
 set tabstop=4
 set shiftwidth=4
@@ -81,84 +88,41 @@ endif
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if !&compatible
+  set nocompatible
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+" reset augroup
+augroup MyAutoCmd
+  autocmd!
+augroup end
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-" for asynchronous tasks
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-" command line at vim
-NeoBundle 'Shougo/vimshell.vim'
-" complete words visualizer
-NeoBundle 'Shougo/neocomplete.vim'
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_ignore_case = 1
-let g:neocomplete#enable_smart_case = 1
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+" dein settings {{{
+" dein自体の自動インストール
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
-let g:neocomplete#keyword_patterns._ = '\h\w*'
-" quickrun programs at vim
-NeoBundle 'thinca/vim-quickrun'
-let g:quickrun_config = {
-\   "cpp/g++-preprocessor" : {
-\       "exec"    : "%c %o %s:p",
-\       "command" : "g++.exe",
-\       "cmdopt"  : " -P -E -C -w -std=gnu++0x",
-\   },
-\}
-" visual effects for vim status bar
-NeoBundle 'itchyny/lightline.vim'
-" filetype definition for haskell
-NeoBundle 'kana/vim-filetype-haskell'
-" plugin for haskell ghcmod
-NeoBundle 'eagletmt/ghcmod-vim'
-" neocomplete helper for haskell
-NeoBundle 'ujihisa/neco-ghc'
-" Arduino syntax highlighting
-NeoBundle 'sudar/vim-arduino-syntax'
-" file tree
-NeoBundle 'scrooloose/nerdtree'
-" vim clang complete plugin
-NeoBundle 'justmao945/vim-clang'
-let g:clang_check_syntax_auto = 1
-let g:clang_format_auto = 1
-let g:clang_format_style = "{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: ForIndentation, AccessModifierOffset: -8, PointerBindsToType: true}"
-" for markdown preview
-NeoBundle 'kannokanno/previm'
-NeoBundle 'open-browser'
+let &runtimepath = s:dein_repo_dir . "," . &runtimepath
+" プラグイン読み込み＆キャッシュ作成
+let s:plugins_toml = s:dein_dir . '/plugins.toml'
+let s:lazy_toml = s:dein_dir . '/lazy.toml'
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir, [$MYVIMRC, s:plugins_toml, s:lazy_toml])
+  call dein#load_toml(s:plugins_toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#end()
+  call dein#save_state()
+endif
+" 不足プラグインの自動インストール
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
+" }}}
 
-highlight Pmenu ctermbg=248 guibg=#606060
-highlight PmenuSel ctermbg=159 guifg=#dddd00 guibg=#1f82cd
-highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
-
-call neobundle#end()
+" 以下にプラグインのその他の設定を書く
 
 " Required:
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
