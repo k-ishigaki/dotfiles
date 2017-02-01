@@ -1,0 +1,29 @@
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+hook_add = '''
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_ignore_case = 1
+  let g:neocomplete#enable_smart_case = 1
+  if !exists('g:neocomplete#keyword_patterns')
+      let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns._ = '\h\w*'
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'sudar/vim-arduino-syntax'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'justmao945/vim-clang'
+hook_add = '''
+  let g:clang_check_syntax_auto = 1
+  let g:clang_format_auto = 1
+  let g:clang_format_style = "{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: ForIndentation, AccessModifierOffset: -8, PointerBindsToType: true}"
+'''
+
