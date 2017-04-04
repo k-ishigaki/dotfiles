@@ -72,6 +72,7 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=b
 set encoding=utf-8
+set fileencoding=utf-8
 set hlsearch
 " tab sizes
 set tabstop=4
