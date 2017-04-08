@@ -18,6 +18,9 @@ repo = 'sudar/vim-arduino-syntax'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+  let g:NERDTreeWinSize=26
+'''
 
 [[plugins]]
 repo = 'justmao945/vim-clang'
