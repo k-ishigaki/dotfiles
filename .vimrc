@@ -50,7 +50,8 @@ set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
+" set mouse=a		" Enable mouse usage (all modes)
+set mouse=			" Disable mouse usage
 set wildmenu
 set autoindent
 set smartindent
@@ -117,6 +118,13 @@ if dein#load_state(s:dein_dir)
   call dein#end()
   call dein#save_state()
 endif
+call dein#add('Shougo/vimproc.vim', {
+			\ 'build': {
+			\     'mac': 'make -f make_mac.mak',
+			\     'linux': 'make',
+			\     'unix': 'gmake',
+			\    },
+			\ })
 " 不足プラグインの自動インストール
 if has('vim_starting') && dein#check_install()
   call dein#install()
