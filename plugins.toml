@@ -1,14 +1,20 @@
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
+repo = 'Shougo/deoplete.nvim'
 hook_add = '''
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_ignore_case = 1
-  let g:neocomplete#enable_smart_case = 1
-  if !exists('g:neocomplete#keyword_patterns')
-      let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns._ = '\h\w*'
+  let g:deoplete#enable_at_startup = 1
 '''
+build=':UpdateRemotePlugins'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+hook_add = '''
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-4.0/lib/libclang.so.1'
+  let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+'''
+depends = ['deoplete.nvim']
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -23,10 +29,12 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'justmao945/vim-clang'
-hook_add = '''
-  let g:clang_check_syntax_auto = 1
-  let g:clang_format_auto = 1
-  let g:clang_format_style = "{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: ForIndentation, AccessModifierOffset: -8, PointerBindsToType: true}"
-'''
+repo = 'cespare/vim-toml'
 
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'stable'
+build = 'bash install.sh'
+
+[[plugins]]
+repo = 'itchyny/vim-haskell-indent'
