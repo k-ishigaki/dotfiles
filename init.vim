@@ -72,11 +72,12 @@ set guioptions-=L
 set guioptions-=b
 set encoding=utf-8
 set fileencoding=utf-8
+set fileencodings=utf-8
 set hlsearch
 " tab sizes
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 " let locate backup files ("*.~) to TEMP directory
 if has('unix') || has('mac')
 	set backupdir=/tmp
