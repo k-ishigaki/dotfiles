@@ -1,23 +1,20 @@
 # Makefile
-# environment dependence
-ifeq ($(OS),Windows_NT)
-	fix-path = $(subst /,\,$1)
-	DIR        = $(shell echo %HOMEPATH%)
-	# make hard link at windows
-	make-link  = mklink /H $(call fix-path,$(DIR)/$1 $1) &
-else
-	fix-path = $1
-	# make symbolic link at linux
-	make-link := ln -sf $1 ~/$1;
-endif
+# supports only linux or mac
+fix-path = $1
+# make symbolic link at linux
+make-link = ln -sf $1 $2;
 
 # target
-EXCLUDES := .git $(wildcard .*.swp)
-TARGET   := $(wildcard .??*)
-FILES    := $(filter-out $(EXCLUDES), $(TARGET))
+INIT_FILE := $(PWD)/init.vim
+INIT_DIR  := ~/.config/nvim/
+PLUGIN_TOMLS := $(PWD)/plugins.toml $(PWD)/lazy.toml
+PLUGIN_DIR := ~/.cache/dein/
+COLORSCHEME_VIM := $(PWD)/railscasts.vim
+COLORSCHEME_DIR := ~/.config/nvim/colors/
 
 # install
 .PHONY: install
 install:
-	$(foreach f, $(FILES), $(call make-link,$(f)))
-
+	$(call make-link,$(INIT_FILE),$(INIT_DIR))
+	$(foreach f, $(PLUGIN_TOMLS), $(call make-link,$(f),$(PLUGIN_DIR)))
+	$(call make-link,$(COLORSCHEME_VIM),$(COLORSCHEME_DIR))
