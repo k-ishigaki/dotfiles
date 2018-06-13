@@ -15,6 +15,9 @@ COLORSCHEME_DIR := ~/.config/nvim/colors/
 # install
 .PHONY: install
 install:
+	mkdir -p $(INIT_DIR)
+	mkdir -p $(PLUGIN_DIR)
+	mkdir -p $(COLORSCHEME_DIR)
 	$(call make-link,$(INIT_FILE),$(INIT_DIR))
 	$(foreach f, $(PLUGIN_TOMLS), $(call make-link,$(f),$(PLUGIN_DIR)))
 	$(call make-link,$(COLORSCHEME_VIM),$(COLORSCHEME_DIR))
