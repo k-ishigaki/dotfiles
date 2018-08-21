@@ -45,7 +45,7 @@ repo = 'cespare/vim-toml'
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
-build = '../install.sh'
+build = './install.sh'
 
 [[plugins]]
 repo = 'itchyny/vim-haskell-indent'
