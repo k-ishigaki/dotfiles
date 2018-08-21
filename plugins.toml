@@ -22,7 +22,7 @@ repo = 'Shougo/neoinclude.vim'
 [[plugins]]
 repo = 'zchee/deoplete-clang'
 hook_add = '''
-  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-4.0/lib/libclang.so.1'
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so.1'
   let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 '''
 depends = ['deoplete.nvim']
