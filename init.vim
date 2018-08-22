@@ -133,9 +133,36 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'haskell': ['hie', '--lsp'],
-    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
-    \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
-    \ }
+    \ 'cpp': ['cquery', '--init={"cacheDirectory":"/var/cquery/"}', '--log-file=/tmp/cq.log'],
+    \ 'c': ['cquery', '--init={"cacheDirectory":"/var/cquery/"}', '--log-file=/tmp/cq.log'],
+\ }
+
+let g:LanguageClient_diagnosticsDisplay = {
+    \ 1: {
+    \     "name": "Error",
+    \     "texthl": "ALEError",
+    \     "signText": "Ｘ",
+    \     "signTexthl": "ALEErrorSign",
+    \ },
+    \ 2: {
+    \     "name": "Warning",
+    \     "texthl": "ALEWarning",
+    \     "signText": "！",
+    \     "signTexthl": "ALEWarningSign",
+    \ },
+    \ 3: {
+    \     "name": "Information",
+    \     "texthl": "ALEInfo",
+    \     "signText": "＞",
+    \     "signTexthl": "ALEInfoSign",
+    \ },
+    \ 4: {
+    \     "name": "Hint",
+    \     "texthl": "ALEInfo",
+    \     "signText": ">>",
+    \     "signTexthl": "ALEInfoSign",
+    \ },
+\ }
 
 set completefunc=LanguageClient#complete
 set formatexpr=LanguageClient_textDocument_rangeFormatting()
