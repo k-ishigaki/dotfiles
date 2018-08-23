@@ -60,8 +60,8 @@ set imsearch=-1		" 検索時のデフォルト値 -1:equal to iminsert
 set formatoptions+=r	" 挿入モード時，Enter押下でコメントを自動挿入する
 set formatoptions-=o	" 'o','O'でのコメントを自動挿入しない
 set formatoptions-=t	" 自動折り返しをしないようにする
-set fileformats=unix,dos
-set fileformat=unix	" unix line endings
+set fileformats=unix,mac,dos " enable automatically detection for existing file
+set fileformat=unix	" set default fileformat to unix line endings
 set noundofile		" undoファイルを作成しない
 set guioptions-=T	" ツールバーを削除
 set nonumber
@@ -70,9 +70,6 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 set guioptions-=b
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
 set hlsearch
 " tab sizes
 set tabstop=4
