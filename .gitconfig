@@ -2,6 +2,6 @@
 	email = k-ishigaki@frontier.hokudai.ac.jp
 	name = k-ishigaki
 [core]
-	autoCRLF = false
+	autoCRLF = input
 [color]
 	ui = auto
