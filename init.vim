@@ -53,6 +53,7 @@ set mouse=			" Disable mouse usage
 set wildmenu
 set autoindent
 set smartindent
+set cursorline
 set number
 set backspace=start,eol,indent
 set iminsert=0		" 挿入モードのデフォルト値 0:IME=OFF
@@ -133,6 +134,10 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['cquery', '--init={"cacheDirectory":"/var/cquery/"}', '--log-file=/tmp/cq.log'],
     \ 'c': ['cquery', '--init={"cacheDirectory":"/var/cquery/"}', '--log-file=/tmp/cq.log'],
 \ }
+
+let g:LanguageClient_rootMakers = {
+    \ 'cpp': ['.cquery'],
+    \ }
 
 let g:LanguageClient_diagnosticsDisplay = {
     \ 1: {
