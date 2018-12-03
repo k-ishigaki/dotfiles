@@ -1,6 +1,6 @@
 [user]
 	email = k-ishigaki@frontier.hokudai.ac.jp
-	name = k-ishigaki
+	name = Kazuki Ishigaki
 [core]
 	autoCRLF = input
 	editor = vim -c \"set fenc=utf-8\"
